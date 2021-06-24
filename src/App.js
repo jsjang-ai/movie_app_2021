@@ -1,17 +1,19 @@
 import React from 'react';
-
-function Food({ love }) {
-  return <h1>I like {love}</h1>;
-}
+import './App.css';
+import { HashRouter, Route } from 'react-router-dom';
+import About from './routes/About';
+import Home from './routes/Home';
+import Navigation from './components/Navigation';
+import Detail from './routes/Detail';
 
 function App() {
   return (
-    <div>
-      <h1>Hello</h1>
-      <Food love="jjajangmien" />
-      <Food love="ramen" />
-      <Food love="samgiopsal" />
-    </div>
+    <HashRouter>
+      <Navigation />
+      <Route path="/" exact={true} component={Home} />
+      <Route path="/about" component={About} />
+      <Route path="/movie-detail" component={Detail} />
+    </HashRouter>
   );
 }
 
